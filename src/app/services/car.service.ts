@@ -11,5 +11,8 @@ export class CarService {
 registerUser(obj:any){
   this.http.post(this.apiEndPoint + 'AddNewUser',obj)
 }
+loginUser(obj:any){
+  this.http.post(this.apiEndPoint + 'login',obj)
+}
 
 }

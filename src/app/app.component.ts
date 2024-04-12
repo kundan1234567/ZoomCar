@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CarService } from './services/car.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,17 +23,19 @@ export class AppComponent {
   constructor(private serv:CarService){
 
   }
-
+  ngOnInit(): void {
+    
+  }
+  
   onRegister(){
-    this.serv.registerUser(this.registerObj).subscribe((res:any)=>{
-      if(res.result){
-        alert("Registration is success")
-        this.closeRegister()
-      }else{
-        alert(res.message)
+    // this.serv.registerUser(this.registerObj).subscribe((res:any)=>{
+    //   if(res.result){
+    //     alert("Registration is sucess")
+    //     this.closeRegister()
+    //   }else{
 
-      }
-    })
+    //   }alert(res.message)
+    // })
   }
   openRegister(){
     const model=document.getElementById('registerModal')
@@ -47,4 +50,31 @@ export class AppComponent {
      model.style.display='none'
     }
   }
+
+  onLogin(){
+   // this.serv.registerUser(this.registerObj).subscribe((res:any)=>{
+    //   if(res.result){
+    //     alert("Login is sucess")
+    // localStorage.setItem('zoomUser',JSON.stringify(res.data))
+    //     this.closeLogin()
+    //   }else{
+
+    //   }alert(res.message)
+    // })
+  }
+  openLogin(){
+    const model=document.getElementById('loginModal')
+    if(model !=null){
+     model.style.display='block'
+    }
+  }
+
+  closeLogin(){
+    const model=document.getElementById('loginModal')
+    if(model !=null){
+     model.style.display='none'
+    }
+  }
+
+
 }
